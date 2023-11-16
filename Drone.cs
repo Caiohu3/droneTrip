@@ -12,8 +12,4 @@ public class Drone
         CurrentWeight = 0;
         Trips = new List<string>();
     }
-
-    public Drone()
-    {
-    }
 }

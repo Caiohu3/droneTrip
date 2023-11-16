@@ -10,15 +10,7 @@ public static class Helper
 
     public static Drone SelectBestDrone(List<Drone> drones, int sumOfWeight)
     {
-        Drone selectedDrone = new();
-        foreach (Drone drone in drones)
-        {
-            if (sumOfWeight <= drone.MaxWeight)
-                return drone;
-            else
-                selectedDrone = drones.Last();
-        }
-        return selectedDrone;
+        return drones.FirstOrDefault(drone => sumOfWeight <= drone.MaxWeight) ?? drones.Last();
     }
 
     public static List<Location> GetLocations(List<string> lines)

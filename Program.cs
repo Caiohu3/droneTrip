@@ -38,7 +38,7 @@
             string tripLocations = drone.Trips[i];
             Console.WriteLine($"Trip #{i+1}: \n[{tripLocations}]");
         }
-        Console.WriteLine(); // Espaço extra após as informações de cada drone
+        Console.WriteLine();
     }
   }
 }
