@@ -40,6 +40,7 @@
         }
         Console.WriteLine();
     }
+    Console.ReadLine();
   }
   
     public static Drone SelectBestDrone(List<Drone> drones, int sumOfWeight)
