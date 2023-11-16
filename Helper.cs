@@ -7,31 +7,4 @@ public static class Helper
                                                          .Replace("]", ""))
                                                          .ToList();
     }
-
-    public static Drone SelectBestDrone(List<Drone> drones, int sumOfWeight)
-    {
-        return drones.FirstOrDefault(drone => sumOfWeight <= drone.MaxWeight) ?? drones.Last();
-    }
-
-    public static List<Location> GetLocations(List<string> lines)
-    {
-        return lines.Skip(1)
-                    .Select(line =>
-                    {
-                        string[] locationInfo = line.Split(", ");
-                        return new Location(locationInfo[0], int.Parse(locationInfo[1]));
-                    })
-                    .ToList();
-    }
-
-    public static List<Drone> GetDrones(List<string> lines)
-    {
-        List<Drone> deliveryDrones = new List<Drone>();
-        string[] droneInfo = lines.First().Split(", ");
-        for (int i = 0; i < droneInfo.Length; i += 2)
-        {
-            deliveryDrones.Add(new Drone(droneInfo[i], int.Parse(droneInfo[i + 1])));
-        }
-        return deliveryDrones.OrderBy(drone => drone.MaxWeight).ToList();
-    }
 }
