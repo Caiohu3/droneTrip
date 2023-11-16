@@ -23,13 +23,13 @@ public static class Helper
 
     public static List<Location> GetLocations(List<string> lines)
     {
-        List<Location> locations = new List<Location>();
-        foreach (var line in lines.Skip(1))
-        {
-            string[] locationInfo = line.Split(", ");
-            locations.Add(new Location(locationInfo[0], int.Parse(locationInfo[1])));
-        }
-        return locations;
+        return lines.Skip(1)
+                    .Select(line =>
+                    {
+                        string[] locationInfo = line.Split(", ");
+                        return new Location(locationInfo[0], int.Parse(locationInfo[1]));
+                    })
+                    .ToList();
     }
 
     public static List<Drone> GetDrones(List<string> lines)
